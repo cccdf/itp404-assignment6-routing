@@ -6,6 +6,7 @@ import CowsPage from "./CowsPage";
 import DogsPage from "./DogsPage";
 import PigsPage from "./PigsPage";
 import PageNotFound from "./PageNotFound";
+import AuthorDetails from "./AuthorDetails";
 import './App.css';
 
 export default class App extends React.Component{
@@ -59,6 +60,7 @@ export default class App extends React.Component{
             <Route path="/animals/pigs">
               <PigsPage/>
             </Route>
+            <Route path="/author/:author" component={AuthorDetails} />
             <Route component={PageNotFound} />
           </Switch>
         </Router>

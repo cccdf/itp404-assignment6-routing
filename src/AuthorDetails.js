@@ -1,17 +1,38 @@
 import React from 'react';
-import fetchUser from "./RedditApi";
+import fetchUser from "./FetchUser";
 
 export default class AuthorDetails extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-          author: {}
+          authors: []
         };
       }
     
     async componentDidMount() {
-        let response = await fetchUser("cats");
-        let animal = response.data.children;
-        this.setState({ animal: animal, loading: false });
+      console.log(this.props.match.params.author);
+      let response = await fetchUser(this.props.match.params.author);
+      let authors = response.data.children;
+      this.setState({ authors: authors});
+      console.log(this.state.authors);
+      
+    }
+
+    render(){
+      return(
+        <div>
+          {this.state.authors.map((author) => {
+            return(
+              <div>
+                <a href={author.data.link_url}>Title:{author.data.link_title}</a>
+                <p>Score:{author.data.score}</p>
+                <p>Author:{author.data.author}</p>
+              </div>
+
+            );
+            
+          })}
+        </div>
+      );
     }
 }

@@ -10,10 +10,12 @@ export default class CatsPage extends React.Component{
         this.state = {
           animal: [],
           loading: true
+          
         };
       }
 
     async componentDidMount() {
+      
         let response = await fetchAnimal("cats");
         let animal = response.data.children;
         this.setState({ animal: animal, loading: false });

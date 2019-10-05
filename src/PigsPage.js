@@ -27,7 +27,9 @@ export default class PigsPage extends React.Component{
               <div>
                 <a href={animal.data.url} target="_blank">Title:{animal.data.title}</a>
                 <p>Score:{animal.data.score}</p>
+                <NavLink to={`/author/${animal.data.author}`} key={animal.id}>
                 <p>Author:{animal.data.author}</p>
+                </NavLink>
               </div>
             );
           })}

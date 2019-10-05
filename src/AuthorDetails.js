@@ -24,7 +24,7 @@ export default class AuthorDetails extends React.Component{
           {this.state.authors.map((author) => {
             return(
               <div>
-                <a href={author.data.link_url}>Title:{author.data.link_title}</a>
+                <a href={author.data.url}>Title:{author.data.title}</a>
                 <p>Score:{author.data.score}</p>
                 <p>Author:{author.data.author}</p>
               </div>
